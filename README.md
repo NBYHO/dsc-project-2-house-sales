@@ -52,7 +52,7 @@ RSME is a perfect result showing that our model is not overfit or underfit and i
 ![QQ-plot4](images/QQ-plot4.png)
 
 Evaluate final model using cross validation
-![cross validation](images/CrossValidation.png)
+![cross validation](images/Cross%20Validation.png)
 
 
 Evaluations:
