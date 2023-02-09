@@ -2,7 +2,7 @@
 
 <img src="images/House-Sales.jpeg"  width="1000" height="400">
 
-##Author: Ngoc Ho
+**Author:** Ngoc Ho
 
 **Overview**
 
