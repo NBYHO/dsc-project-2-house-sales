@@ -81,11 +81,7 @@ In this dataset, our categorical features are fortunately are easily converted t
 ## Repository Structure
     .
     ├── data                                # data folder
-    │   ├── zipcode_shape                   # shapefile for plotting with zipcode
-    ├── reference                           # project reference files
     ├── images                              # project image/graph files
-    ├── models                              # final regression models
-    ├── results                             # model predicted file location
-    ├── housing_price_prediction.ipynb      # project notebook with EDA and model creation
-    ├── king_county_prediciton.ipynb        # final prediciton notebook, model implementation
+    ├── King_County_Housing_Model.ipynb     # project notebook
+    ├── Presentation.pdf                    # project presentation
     └── README.md
