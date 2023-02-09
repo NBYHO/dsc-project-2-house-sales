@@ -1,6 +1,6 @@
 # Phase 2 Project - House Sales King County
 
-![housesales](images/House-Sales.jpeg)
+<img src="images/House-Sales.jpeg"  width="500" height="400">
 
 **Overview**
 
@@ -86,5 +86,5 @@ Repository Structure
 ├── images                                    # project image/graph files
 ├── master                                    # final regression models
 ├── king_county_notebook_final.ipynb          # project notebook with EDA and model creation
-├── king_county_presentation.pdf              # final prediciton notebook, model implementation
+├── king_county_presentation.pdf              # final prediction notebook, model implementation
 └── README.md
