@@ -1,4 +1,4 @@
-# Phase 2 Project - House Sales in NorthWest County
+# Phase 2 Project - House Sales King County
 
 ![housesales](images/House-Sales.jpeg)
 
