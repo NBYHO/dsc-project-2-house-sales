@@ -32,7 +32,7 @@ Very high residual errors suggesting our model is poor.
 Adj-R2 : 0.384 , RMSE : 95163669.86
 Slightly better RMSE, adj-R2 reduced due to removal of insignificant features reducing multicollinearity. 
 QQ-plot of residuals suggests violation of normality assumption
-<img src="images/QQ-plot-1.png"  width="100" height="100">
+<img src="images/QQ-plot-1.png"  width="500" height="500">
 
 - Model 2: Significant features are selected with multicollinearity removed
 [Heatmap]
