@@ -1,6 +1,6 @@
 # Phase 2 Project - House Sales King County
 
-<img src="images/House-Sales.jpeg"  width="500" height="400">
+<img src="images/House-Sales.jpeg"  width="1000" height="400">
 
 **Overview**
 
