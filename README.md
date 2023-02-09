@@ -1,72 +1,80 @@
-# Phase 1 Project Template - Minimum Viable Product (MVP)
+# Phase 2 Project - House Sales King County
 
-![blueprint](images/blueprint.png)
+![housesales](images/House-Sales.jpeg)
 
-This repository is like a blueprint, providing structure for your first End of Phase Project. We suggest you base your Phase 1 project off of this repository so you can focus less on formatting and organization, and more on the _analysis and communication skills_ that will support your progress through the course. This template is designed to make your project portfolio-ready in order to impress the future employers who will review it. 
+Overview
+This project aims to build a multiple linear regression model to predict house prices. This regression model can be utilized to give accurate property appraisal to homeowners and home buyers, potentially assist in property investment decisions to maximise profit. The model will be derived from King County in King County, Seattle, WA house sale dataset. The data will be explored for sigificant features and the model will be built using OLS from statsmodel library in Python. The model shows very promising accuracy in predicting property value however it has low inference value to property value. Perhaps a different model would have been more suitable for our dataset. 
 
-## Repository Contents
+Business Problem
+A Seattle realestate company wants to establish an evaluation system for houses to provide a price appraisal and investment strategies to their clients. Having an accurate house price predictor will help the company build their reputation by gaining invaluable trust from their clients. For the client, this will help maximise their selling/investing potentials and for the company this will help increase their client number and increase commission. 
 
-Below is a list of the contents of this repository - instructions for using them are in the next section.
+The main data analysis questions we will be focusing on are:
+1. What features add value to properties?
+2. Does renovation add to property value?
+3. Does neighbourhood add values to property?
 
-- `README.md`: The README for this repo branch explaining it's contents - you're reading it now
-- `TEMPLATE_README.md`: An example of a project README that provides a brief overview of your whole project
-- `dsc-phase1-project-template.ipynb`: A starter Jupyter Notebook with headings, code examples and guiding questions
-- `DS_Project_Presentation_Template.pdf`: A starter slide deck presenting your project - here is an [editable version](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy)
-- `zippedData` folder: A folder for the data you reference with your code
-- `images` folder: A folder for the images you reference in your files 
-- `.gitignore`: A hidden file that tells git to not track certain files and folders
+Data: 
+This project uses the King County House Sales dataset (kc_house_data.csv ). This dataset has 21 columns and 21597 entries of house sales in King County, Seattle, WA between 2014 and 2015. The dataset contains information on sold date, price, year built, year renovated and structure features within the property such as living area, number of bedrooms, bathrooms, floors, waterfront. It also has information on location, surrounding 15 houses's area int the neibourhood. We will examine the relationship of these features and property value using correlation analysis. These features will also be used to investigate their effect on property price and be selected to be included in a multilinear regression model to predict property value.
 
-## Instructions For Using This Repository
+Method: 
 
-### Fork This Repository
+Check for data completeness and integrity
+Perform EDA with statistical analysis to determine statistically significant features
+Visualize statistically significant features
+Engineer new features based on stastistical findings
+Model Linear Regression models and evaluate each model using residual plots (check homoscedasticity) and QQ plots (check normality) for final implementation
 
-**For a group project**, have only one team member do these steps:
+- Baseline model ( no changes to features)
+Adj-R2 : 0.702, RMSE : 1957278622.78
+Very high residual errors suggesting our model is poor. 
 
-1. Fork this repository to your personal account
-   - In GitHub, go to this repository and click the "Fork" button in the upper right
-   
-2. Change the name of your fork of this repo to a _descriptive_ name of your choosing
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Options" -> "Repository Name" -> "Rename"
-   - Make the name descriptive, since potential employers will read it. Ex: "Microsoft-Movie-Analysis" is better than "Project-1"
+- Model 1: Significant features are selected with outliers removed
+Adj-R2 : 0.384 , RMSE : 95163669.86
+Slightly better RMSE, adj-R2 reduced due to removal of insignificant features reducing multicollinearity. 
+QQ-plot of residuals suggests violation of normality assumption
+![QQ-plot1](images/QQ-plot-1.png)
 
-3. Use `git clone` to clone your fork of this repo to your local computer
+- Model 2: Significant features are selected with multicollinearity removed
+[Heatmap]
+Heatmap suggests that there are still multicollinearity in our features. After removing multicollinearity:
+Adj-R2 : 0.369 , RMSE : 62506776.87
+![QQ-plot2](images/QQ-plot2.png)
 
-4. **For a group project**, add team members as collaborators to your fork of this repo
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Manage Access" -> "Invite Teams or People"
-   - Add your project team members as collaborators & send them the repo GitHub URL
+- Model 3: Normalisation of all variables using log transformation
+Adj_R2: 0.371, RMSE: 392.79
+![QQ-plot3](images/QQ-plot3.png)
+Our model significantly improve after log transformation to make variables distribution more normal. Our RMSE showed significant improvement. 
 
-### Work In Your Fork Of This Repository
+- Final model: Features scalling using standardisation
+Adj_R2: 0.369, RMSE: 0.00123
+RSME is a perfect result showing that our model is not overfit or underfit and it yields accurate results. 
+![Finalmodel](images/Finalmodel.png)
+![QQ-plot4](images/QQ-plot4.png)
 
-- Work in the repo clone that you created on your local machine
-- Start writing and coding in the Jupyter Notebook `dsc-phase1-project-template.ipynb`
-- Fill in the README template in `TEMPLATE_README.md`
-- Use `git add`, `git commit`, and `git push` often to update your repo in GitHub
-   - For a refresher on how to do this and why it's important, review Topic 2: Bash and Git
+Evaluate final model using cross validation
+![cross validation](images/CrossValidation.png)
 
-### Use The Slide Template
 
-1. Go to [this link](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy) to make an editable copy of the slide deck in your own Google Drive account
-2. Go to "Slide," select "Change Theme," and pick a theme you like so your presentation doesn't look like everyone else's
-3. **For a group project**, click the "Share" button and add your teammates as editors
+Evaluations:
+The final model is able to produce almost zero residual both in the test and train group which means that within linear regression this model is very accurate. With a neglegible RMSE value close to 0, this model does not seem to be underfit or overfit. It has reasonable ability to generalise beyond the dataset. However adjusted R2 value is only 0.369 which means that this model can only explain 36.9% changes in the dependent variable i.e the features in this multilinear regression model can only explain 36.9% of the property sale price which is low. I am confident that this model can accurate predict property value based on RSME results from cross validation however the model has low inference abilty given the low adjusted R2 value. Therefore, this model can is useful in accurately predicting the property value but it will fail to accurately explain how each feature of the property will affect property value.
 
-### Tidy Up Your Project
+![RMSE across models](images/RMSE.png)
 
-- Change the file name of the Jupyter Notebook (`dsc-phase1-project-template.ipynb`) to something more descriptive
-- Save an appropriately-named PDF version of your slide deck to the repository
-- Rename the template readme you've been working in by running `git mv TEMPLATE_README.md README.md`
-- Delete unnecessary files from the repo using `git rm`
-   - The presentation PDF: `DS_Project_Presentation_Template.pdf`
-   - Any unused data files in the `zippedData` folder
-   - Any unused images in the `images` folder
-- Utilize the .gitignore file to ignore large unzipped data files in the `zippedData` folder
-   - Add `*.csv`,`*.tsv`, and `*.db` to the .gitignore file
+Conclusions
+From our final model summary, the estimated value of the coefficient indicates how much the model multiplies this independent value. sqft_living (footage of the home) has the highest estimated value of coefficient out of our 4 significant features meaning this feature adds the most value to the property. Doing a house extension might be a good idea to increase property value. However, during data exploration, renovations does not show a strong postive linear relationship with prices yet baseline model shows that it is a sigficant feature with p-value <0.05 and a coefficient of determination of 4.836e+04. In conclusion, renovation does add value to properties. 
 
-### Submit Your Project
+Limitations:
 
-To submit your project, please follow the instructions in the "Project Submission & Review" page in the Milestones course.
+Perhaps linear regression is not suitable for this data set. Based on RSME results from cross validation, it looks like the model can predict the property value accurately however our adjusted R2 was low, the model requires more data and a more suitable regression model to be able to give clients advised on how each feature add value to the property.
 
-***
-### Notes
+In this dataset, our categorical features are fortunately are easily converted to numerical values without using one hot encoding. Grade and bathrooms feature could've been converted to dummies however they were already in numerical values. In future cases, get_dummies function could be used. 
 
-- The visualizations in the notebook use best practices for visualization that you should try to emulate. For example, they have clear axes, descriptive titles, and appropriate number formatting
-- The `dsc-phase1-project-template.ipynb` is intended to be the _final version_ of your project. The first notebook you create will not look like this. You are encouraged to start with a very disorderly notebook and clean it as you go
+
+Repository Structure
+.
+├── data                                # data folder
+├── images                              # project image/graph files
+├── master                              # final regression models
+├── king_county_notebook_final.ipynb    # project notebook with EDA and model creation
+├── king_county_presentation.pdf        # final prediciton notebook, model implementation
+└── README.md
