@@ -78,13 +78,14 @@ Perhaps linear regression is not suitable for this data set. Based on RSME resul
 
 In this dataset, our categorical features are fortunately are easily converted to numerical values without using one hot encoding. Grade and bathrooms feature could've been converted to dummies however they were already in numerical values. In future cases, get_dummies function could be used. 
 
-.
-├── data                                # data folder
-│   ├── zipcode_shape                   # shapefile for plotting with zipcode
-├── reference                           # project reference files
-├── images                              # project image/graph files
-├── models                              # final regression models
-├── results                             # model predicted file location
-├── housing_price_prediction.ipynb      # project notebook with EDA and model creation
-├── king_county_prediciton.ipynb        # final prediciton notebook, model implementation
-└── README.md
+## Repository Structure
+    .
+    ├── data                                # data folder
+    │   ├── zipcode_shape                   # shapefile for plotting with zipcode
+    ├── reference                           # project reference files
+    ├── images                              # project image/graph files
+    ├── models                              # final regression models
+    ├── results                             # model predicted file location
+    ├── housing_price_prediction.ipynb      # project notebook with EDA and model creation
+    ├── king_county_prediciton.ipynb        # final prediciton notebook, model implementation
+    └── README.md
