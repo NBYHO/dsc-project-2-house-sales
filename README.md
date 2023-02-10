@@ -23,9 +23,13 @@ This project uses the King County House Sales dataset (kc_house_data.csv ). This
 **Method:**
 
 Check for data completeness and integrity
+
 Perform EDA with statistical analysis to determine statistically significant features
+
 Visualize statistically significant features
+
 Engineer new features based on stastistical findings
+
 Model Linear Regression models and evaluate each model using residual plots (check homoscedasticity) and QQ plots (check normality) for final implementation
 
 - Baseline model ( no changes to features)
