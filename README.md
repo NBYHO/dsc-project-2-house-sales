@@ -59,7 +59,8 @@ Our model significantly improve after log transformation to make variables distr
 
 - Final model: Features scalling using standardisation
 Adj_R2: 0.369, RMSE: 0.00123
-RSME is a perfect result showing that our model is not overfit or underfit and it yields accurate results. 
+RSME is a perfect result showing that our model is not overfit or underfit and it yields accurate results.
+QQ-plot becomes more linear over each iteration of the model and Jarque-Bera score has reduced from 1877255.867 to 139 suggesting more normality. Our residual plots also shows more homocesdascity. 
 
 <img src="images/Final%20model.png"  width="500" height="500">
 
