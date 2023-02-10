@@ -2,6 +2,8 @@
 
 <img src="images/House-Sales.jpeg"  width="1000" height="400">
 
+**Author:** Ngoc Ho
+
 **Overview**
 
 This project aims to build a multiple linear regression model to predict house prices. This regression model can be utilized to give accurate property appraisal to homeowners and home buyers, potentially assist in property investment decisions to maximise profit. The model will be derived from King County in King County, Seattle, WA house sale dataset. The data will be explored for sigificant features and the model will be built using OLS from statsmodel library in Python. The model shows very promising accuracy in predicting property value however it has low inference value to property value. Perhaps a different model would have been more suitable for our dataset. 
@@ -21,9 +23,13 @@ This project uses the King County House Sales dataset (kc_house_data.csv ). This
 **Method:**
 
 Check for data completeness and integrity
+
 Perform EDA with statistical analysis to determine statistically significant features
+
 Visualize statistically significant features
+
 Engineer new features based on stastistical findings
+
 Model Linear Regression models and evaluate each model using residual plots (check homoscedasticity) and QQ plots (check normality) for final implementation
 
 - Baseline model ( no changes to features)
@@ -70,13 +76,19 @@ The final model is able to produce almost zero residual both in the test and tra
 <img src="images/RMSE.png"  width="500" height="500">
 
 **Conclusions**
-From our final model summary, the estimated value of the coefficient indicates how much the model multiplies this independent value. sqft_living (footage of the home) has the highest estimated value of coefficient out of our 4 significant features meaning this feature adds the most value to the property. Doing a house extension might be a good idea to increase property value. However, during data exploration, renovations does not show a strong postive linear relationship with prices yet baseline model shows that it is a sigficant feature with p-value <0.05 and a coefficient of determination of 4.836e+04. In conclusion, renovation does add value to properties. The model also reveals that the size of houses in the neighbourhood does have a positive impact on property prices 
+From our final model summary, the estimated value of the coefficient indicates how much the model multiplies this independent value. sqft_living (footage of the home) has the highest estimated value of coefficient out of our 4 significant features meaning this feature adds the most value to the property. Doing a house extension might be a good idea to increase property value. However, during data exploration, renovations does not show a strong postive linear relationship with prices yet baseline model shows that it is a sigficant feature with p-value <0.05 and a coefficient of determination of 4.836e+04. In conclusion, renovation does add value to properties. The model also reveals that the size of houses in the neighbourhood does have a positive impact on property prices. 
 
 **Limitations:**
 
 Perhaps linear regression is not suitable for this data set. Based on RSME results from cross validation, it looks like the model can predict the property value accurately however our adjusted R2 was low, the model requires more data and a more suitable regression model to be able to give clients advised on how each feature add value to the property.
 
-In this dataset, our categorical features are fortunately are easily converted to numerical values without using one hot encoding. Grade and bathrooms feature could've been converted to dummies however they were already in numerical values. In future cases, get_dummies function could be used. 
+In this dataset, our categorical features are fortunately are easily converted to numerical values without using one hot encoding. Grade and bathrooms feature could've been converted to dummies however they were already in numerical values. In future cases, get_dummies function could be used.
+
+## For More Information
+
+Please review my full analysis in [my Jupyter Notebook](https://github.com/NBYHO/dsc-project-2-house-sales/blob/main/King_County_Housing_Model.ipynb) or my [presentation](https://github.com/NBYHO/dsc-project-2-house-sales/blob/main/King%20County%20Presentation.pdf).
+
+For any additional questions, please contact **Ngoc Ho, yen.ho993@gmail.com**
 
 ## Repository Structure
     .
